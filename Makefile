@@ -4,7 +4,7 @@ CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
 
 SRCS	= $(wildcard ./*.c)
-OBJS	= $(SRCS:c=.o)
+OBJS	= $(SRCS:.c=.o)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
