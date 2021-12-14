@@ -2,6 +2,7 @@
 # define SOLVER_H
 
 # include <stdio.h>
+# include <stdlib.h>
 
 #define rep(i,n) for(int i=0;i<(int)(n);i++)
 
