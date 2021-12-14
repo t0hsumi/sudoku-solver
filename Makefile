@@ -2,17 +2,18 @@ NAME	= sudoku_solver
 
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
+DEBUG	= -g
 
 SRCS	= $(wildcard ./*.c)
 OBJS	= $(SRCS:.c=.o)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUG) -c $< -o $@
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(DEBUG) -o $(NAME) $(OBJS)
 
 clean:
 	rm -f $(OBJS)
