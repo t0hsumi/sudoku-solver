@@ -1,23 +1,25 @@
 #include "solver.h"
 
+// check row(-) line
 static int row(char map[9][9], int y){
 	int res = 1;
 	int count[10];
 
 	rep(i, 10) count[i] = 0;
-	rep(i, 9) count[map[i][y] - '0']++;
+	rep(i, 9) count[map[y][i] - '0']++;
 	for (int i = 1; i < 10; i++){
 		if (count[i] > 1) res = 0;
 	}
 	return res;
 }
 
+// check col(|) line
 static int col(char map[9][9], int x){
 	int res = 1;
 	int count[10];
 
 	rep(i, 10) count[i] = 0;
-	rep(i, 9) count[map[x][i] - '0']++;
+	rep(i, 9) count[map[i][x] - '0']++;
 	for (int i = 1; i < 10; i++){
 		if (count[i] > 1) res = 0;
 	}
