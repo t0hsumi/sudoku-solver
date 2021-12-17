@@ -1,6 +1,6 @@
 #include "solver.h"
 
-// check row(-) line
+// check y-th row(-) line
 static int row(char map[9][9], int y){
 	int res = 1;
 	int count[10];
@@ -13,7 +13,7 @@ static int row(char map[9][9], int y){
 	return res;
 }
 
-// check col(|) line
+// check x-th col(|) line
 static int col(char map[9][9], int x){
 	int res = 1;
 	int count[10];
