@@ -22,21 +22,20 @@ int solve(char map[9][9], int x, int y, int n){
 		}
 	}
 	else{
-		for (int tmp = 1; tmp < 10; tmp++){
-			map[y][x] = tmp;
-			if (checker(map, x, y)){
-				if (x == 8){
-					for (int i = 1; i < 10; i++)
-						solve(map, 0, y+1, i);
-					/* if (solve(map, 0, y+1)) */
-					/* 	res = 1; */
-				}
-				else{
-					for (int i = 1; i < 10; i++)
-						solve(map, x+1, y, i);
-					/* if (solve(map, x+1, y)) */
-					/* 	res = 1; */
-				}
+		printf("map[%c][%c] = %d\n", y+'0', x+'0', n);
+		map[y][x] = n + '0';
+		if (checker(map, x, y)){
+			if (x == 8){
+				for (int i = 1; i < 10; i++)
+					solve(map, 0, y+1, i);
+				/* if (solve(map, 0, y+1)) */
+				/* 	res = 1; */
+			}
+			else{
+				for (int i = 1; i < 10; i++)
+					solve(map, x+1, y, i);
+				/* if (solve(map, x+1, y)) */
+				/* 	res = 1; */
 			}
 		}
 		map[y][x] = 0;
