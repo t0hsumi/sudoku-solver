@@ -9,6 +9,6 @@
 void	init(char map[9][9]);
 void	output(char map[9][9]);
 int		checker(char map[9][9], int x, int y);
-int		solve(char map[9][9], int x, int y);
+int		solve(char map[9][9], int x, int y, int n);
 
 #endif
