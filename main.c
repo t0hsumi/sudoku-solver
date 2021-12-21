@@ -3,7 +3,9 @@
 int main(){
 	char map[9][9];
 	init(map);
-	printf("%d\n", solve(map, 0, 0, 1));
+	for (int i = 1; i < 10; i++){
+		solve(map, 0, 0, i);
+	}
 	output(map);
 }
 
