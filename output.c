@@ -6,5 +6,6 @@ void output(char map[9][9]){
 		if (j == 8) printf("\n");
 		else printf(" ");
 	}
+	printf("\n");
 	exit(0);
 }

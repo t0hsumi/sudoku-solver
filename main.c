@@ -6,6 +6,5 @@ int main(){
 	for (int i = 1; i < 10; i++){
 		solve(map, 0, 0, i);
 	}
-	output(map);
 }
 
