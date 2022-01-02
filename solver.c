@@ -25,6 +25,6 @@ int solve(char map[9][9], int x, int y, int n){
 		}
 	}
 	if (fixed == 0)
-		map[x][y] = '0';
+		map[y][x] = '0';
 	return 1;
 }
