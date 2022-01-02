@@ -22,4 +22,3 @@ int main(){
 	}
 	printf("No answer.\n");
 }
-
