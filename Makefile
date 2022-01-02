@@ -4,7 +4,7 @@ CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
 DEBUG	= -g
 
-SRCS	= $(wildcard ./*.c)
+SRCS	= main.c output.c input.c checker.c solver.c
 OBJS	= $(SRCS:.c=.o)
 
 .c.o:
