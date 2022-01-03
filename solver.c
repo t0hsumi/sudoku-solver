@@ -1,21 +1,25 @@
 /*
-**This file is the core of this program. Solve sudoku! I explain how to solve sudoku in this program.
-**In short, this program try to put 1-9 from up-left to bottom-right and output answer if it reached bottom-right.
+**  This file is the core of this program. Solve sudoku! I explain how to solve sudoku in this program.
+**  In short, this program try to put 1-9 from up-left to bottom-right and output answer if it reached bottom-right.
+**  
+**  The below solve func try to assign n(1-9) for map[y][x]. The result is affected by what map[y][x] is.
+**  There are 3 branches.
+**  
+**  	1. map[y][x] equals 0.
+**  		1-a. It doesn't follow sudoku rules if assign n for map[y][x].
+**  			it's impossible to assign n.
+**  		1-b. It follows sudoku rules if assign n for map[y][x].
+**  			temporary, it's possible to assign n. Go ahead.
+**  	2. map[y][x] equals n.
+**  		temporary, it's possible to assign n. Go ahead.
+**  	3. else.
+**  		it's impossible to assign n.
+**  
+**  If map[y][x] = n is possible answer, assign n for map[y][x] temporary and try to assign next block.
+**  Else, look back and check other possibilities.
 **
-**The below solve func try to assign n(1-9) for map[y][x]. The result is affected by what map[y][x] is.
-**There are 3 branches.
 **
-**	1. map[y][x] equals 0.
-**		1-a. It doesn't follow sudoku rules if assign n for map[y][x].
-**			it's impossible to assign n.
-**		1-b. It follows sudoku rules if assign n for map[y][x].
-**			temporary, it's possible to assign n. Go ahead.
-**	2. map[y][x] equals n.
-**		temporary, it's possible to assign n. Go ahead.
-**	3. else.
-**		it's impossible to assign n.
-**
-**If map[y][x] = n is possible answer, assign n for map[y][x] temporary and try to assign next block.
+**           Repeatedly work like this and if reaches bottom-right, output the answer.
 */
 
 
@@ -41,7 +45,7 @@ int solve(char map[9][9], int x, int y, int n){
 	// if reach right end, look next line.
 	int next_x = ((x == 8) ? 0 : x+1);
 	int next_y = ((x == 8) ? y+1 : y);
-	// if it reaches bottom-right, it means map is the ans so output the ans.
+	// if it reaches bottom-right, it means map is the ans, so output the ans.
 	if (next_x == 0 && next_y == 9)
 		output(map);
 	else{
@@ -49,7 +53,10 @@ int solve(char map[9][9], int x, int y, int n){
 			solve(map, next_x, next_y, i);
 		}
 	}
+	// if reached this code block and flagged,
+	// it means you try to assing n for map[y][x] and fail.
+	// So initialize map[y][x].
 	if (fixed)
 		map[y][x] = '0';
-	return 1;
+	return 0;
 }
