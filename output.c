@@ -1,3 +1,7 @@
+/*
+** This func output the ans and terminate program.
+*/
+
 #include "solver.h"
 
 void output(char map[9][9]){

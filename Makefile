@@ -2,7 +2,7 @@ NAME	= sudoku_solver
 
 CC		= gcc
 CFLAGS	= -Wall -Werror -Wextra
-DEBUG	= -g
+DEBUG	= -g -fsanitize=address
 
 SRCS	= main.c output.c input.c checker.c solver.c
 OBJS	= $(SRCS:.c=.o)

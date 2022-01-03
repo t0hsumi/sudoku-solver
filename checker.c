@@ -1,3 +1,7 @@
+/*
+** These func check whether map follows rule that each row, colmun and 3x3 section contains all of the digits between 1-9.
+*/
+
 #include "solver.h"
 
 // check y-th row(-) line
@@ -26,6 +30,7 @@ static int col(char map[9][9], int x){
 	return res;
 }
 
+// check the 3x3 block
 static int block(char map[9][9], int x, int y){
 	int res = 1;
 	int count[10];
@@ -42,6 +47,8 @@ static int block(char map[9][9], int x, int y){
 	return res;
 }
 
+// If all check are passed, return 1.
+// Else, return 0.
 int checker(char map[9][9], int x, int y){
 	if (row(map, y) && col(map, x) && block(map, x, y))
 		return 1;

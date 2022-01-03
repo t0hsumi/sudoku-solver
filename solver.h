@@ -1,9 +1,10 @@
 #ifndef SOLVER_H
 # define SOLVER_H
 
-# include <stdio.h>
-# include <stdlib.h>
+# include <stdio.h>  // printf
+# include <stdlib.h> // exit
 
+// define the simple 'for' roop macro.
 #define rep(i,n) for(int i=0;i<(int)(n);i++)
 
 void	init(char map[9][9], int *check);
