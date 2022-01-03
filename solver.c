@@ -6,10 +6,10 @@
 #include "solver.h"
 
 int solve(char map[9][9], int x, int y, int n){
-	int fixed = 0;
+	int fixed = 1;
 
 	if (map[y][x] == n + '0')
-		fixed = 1;
+		fixed = 0;
 	else{
 		if (map[y][x] != '0')
 			return 0;
@@ -29,7 +29,7 @@ int solve(char map[9][9], int x, int y, int n){
 			solve(map, next_x, next_y, i);
 		}
 	}
-	if (fixed == 0)
+	if (fixed)
 		map[y][x] = '0';
 	return 1;
 }
