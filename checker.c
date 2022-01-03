@@ -30,7 +30,7 @@ static int col(char map[9][9], int x){
 	return res;
 }
 
-// check the 3x3 block
+// check the 3x3 section
 static int block(char map[9][9], int x, int y){
 	int res = 1;
 	int count[10];
