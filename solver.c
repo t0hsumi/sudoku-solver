@@ -6,16 +6,16 @@
 **  There are 3 branches.
 **  
 **  	1. map[y][x] equals 0.
-**  		1-a. It doesn't follow sudoku rules if assign n for map[y][x].
+**  		1-a. If assign n for map[y][x], it doesn't follow sudoku rules.
 **  			it's impossible to assign n.
-**  		1-b. It follows sudoku rules if assign n for map[y][x].
+**  		1-b. If assign n for map[y][x], it follows sudoku rules.
 **  			temporary, it's possible to assign n. Go ahead.
 **  	2. map[y][x] equals n.
 **  		temporary, it's possible to assign n. Go ahead.
 **  	3. else.
 **  		it's impossible to assign n.
 **  
-**  If map[y][x] = n is possible answer, assign n for map[y][x] temporary and try to assign next block.
+**  If map[y][x] = n is possible answer, assign n for map[y][x] temporarily and try to assign next block.
 **  Else, look back and check other possibilities.
 **
 **
@@ -42,7 +42,7 @@ int solve(char map[9][9], int x, int y, int n){
 
 	// case.2 & 1-b
 	// look the block next to the right.
-	// if reach right end, look next line.
+	// if reach right end, look left end of the next line.
 	int next_x = ((x == 8) ? 0 : x+1);
 	int next_y = ((x == 8) ? y+1 : y);
 	// if it reaches bottom-right, it means map is the ans, so output the ans.
@@ -53,7 +53,7 @@ int solve(char map[9][9], int x, int y, int n){
 			solve(map, next_x, next_y, i);
 		}
 	}
-	// if reached this code block and flagged,
+	// if reached the code block below and flagged,
 	// it means you try to assing n for map[y][x] and fail.
 	// So initialize map[y][x].
 	if (fixed)
